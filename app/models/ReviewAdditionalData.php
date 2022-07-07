@@ -12,7 +12,7 @@ class ReviewAdditionalData extends ActiveRecord
     public $creationDate;
     public $userReviewId;
 
-    private static $userReviews = [
+    private static $reviewAdditionalData = [
         '1' => [
             'id' => '1',
             'ip_address' => '8,8,8,8',
