@@ -16,6 +16,7 @@ class m220707_024851_create_review_additional_data_table extends Migration
             'id' => $this->primaryKey(),
             'ip_address' => $this->string()->notNull(),
             'user_agent' => $this->string()->notNull(),
+            'creation_date' => $this->timestamp()->notNull(),
             'user_review_id' => $this->integer()->notNull(),
         ]);
 

@@ -9,6 +9,7 @@ class ReviewAdditionalData extends ActiveRecord
     public $id;
     public $ipAddress;
     public $userAgent;
+    public $creationDate;
     public $userReviewId;
 
     private static $userReviews = [
@@ -16,6 +17,7 @@ class ReviewAdditionalData extends ActiveRecord
             'id' => '1',
             'ip_address' => '8,8,8,8',
             'user_agent' => 'firefox',
+            'creation_date' => '11/11/2011',
             'user_review_id' => 1,
         ],
     ];
