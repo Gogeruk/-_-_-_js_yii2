@@ -19,7 +19,7 @@ class m220707_022707_create_user_review_table extends Migration
             'review' => $this->text()->notNull(),
             'rating' => $this->integer(5)->notNull(),
             'advantage' => $this->text()->null(),
-            'disadvantages' => $this->text()->null(),
+            'disadvantage' => $this->text()->null(),
         ]);
     }
 
