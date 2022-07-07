@@ -4,7 +4,7 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
-class UserReview extends ActiveRecord
+1class UserReview extends ActiveRecord
 {
     public $id;
     public $name;
