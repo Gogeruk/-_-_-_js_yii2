@@ -4,7 +4,7 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
-1class UserReview extends ActiveRecord
+class UserReview extends ActiveRecord
 {
     public $id;
     public $name;
@@ -18,10 +18,10 @@ use yii\db\ActiveRecord;
         '1' => [
             'id' => '1',
             'name' => 'test',
-            'email' => 'memail@mail.com'
+            'email' => 'memail@mail.com',
             'review' => 'GOOD',
             'rating' => 1,
-            'advantage' => null
+            'advantage' => null,
             'disadvantage' => null,
         ],
     ];

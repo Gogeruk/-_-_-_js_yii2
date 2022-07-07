@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 
-class UserReviewController extends Controller
+class ReviewController extends Controller
 {
 
 
