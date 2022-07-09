@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\UserReviewSearch;
 use app\models\UserReview;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,6 +14,33 @@ use yii\filters\AccessControl;
 
 class ReviewController extends Controller
 {
+
+
+    public function behaviors()
+    {
+        return [
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'delete' => ['post'],
+//                ],
+//            ],
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'only' => ['create'],
+//                'rules' => [
+//                    [
+//                        'allow' => true,
+//                        'actions' => ['create'],
+//                        'roles' => ['@'],
+//                    ],
+//                ],
+//            ]
+        ];
+    }
+
+
+
     /**
      * @return string
      */
@@ -48,25 +76,23 @@ class ReviewController extends Controller
     {
         $model = new UserReview();
 
+
+//        print_r($_POST);
+
+
+
         if ($model->load(Yii::$app->request->post()) /*&& $model->save()*/) {
 
+//        $model->id = rand(444, 99999);
+//        $model->name = 'aaaaaaaaaaaa';
+//        $model->email = 'aaaaaaaaaaaa@aaa.com';
+//        $model->review = 'aaaaaaaaaaaa';
+//        $model->rating = 2;
+//        $model->advantage = 'aaaaaaaaaaaa';
+//        $model->disadvantage = 'aaaaaaaaaaaa';
+        $model->save();
 
 
-            //
-            ///
-            //
-//            echo '111111111111111111111111';
-
-
-            $model->save();
-
-//            $model->setna
-//
-//            var_dump($model);
-
-
-            exit();
-            echo '2222222222222222222';
 
 
 

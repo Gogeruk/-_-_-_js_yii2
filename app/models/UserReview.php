@@ -4,15 +4,16 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
+
 class UserReview extends ActiveRecord
 {
-    public $id;
-    public $name;
-    public $email;
-    public $review;
-    public $rating;
-    public $advantage;
-    public $disadvantage;
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'user_review';
+    }
 
     /**
      * @inheritdoc
@@ -24,7 +25,7 @@ class UserReview extends ActiveRecord
             [['name'], 'string', 'max' => 30],
             [['email', 'review', 'advantage', 'disadvantage'], 'string', 'max' => 255],
             [['email'], 'email'],
-            [['email'], 'unique']
+            [['email'], 'unique'],
         ];
     }
 
@@ -42,21 +43,5 @@ class UserReview extends ActiveRecord
             'advantage' => 'advantage',
             'disadvantage' => 'disadvantage',
         ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 }

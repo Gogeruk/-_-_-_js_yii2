@@ -16,11 +16,7 @@ class UserReviewSearch extends UserReview
     public function rules()
     {
         return [
-            [['name', 'email', 'review', 'rating'], 'required'],
-            [['name'], 'string', 'max' => 30],
-            [['email', 'review', 'advantage', 'disadvantage'], 'string', 'max' => 255],
-            [['email'], 'email'],
-            [['email'], 'unique']
+            [['name', 'email', 'review', 'rating', 'advantage', 'disadvantage'], 'safe'],
         ];
     }
 
