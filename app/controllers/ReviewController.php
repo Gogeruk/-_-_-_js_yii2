@@ -13,13 +13,6 @@ use yii\filters\AccessControl;
 
 class ReviewController extends Controller
 {
-
-
-
-
-
-
-
     /**
      * @return string
      */
@@ -35,11 +28,55 @@ class ReviewController extends Controller
     }
 
 
+    /**
+     * @param $id
+     * @return string
+     * @throws NotFoundHttpException
+     */
     public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+    }
+
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionCreate()
+    {
+        $model = new UserReview();
+
+        if ($model->load(Yii::$app->request->post()) /*&& $model->save()*/) {
+
+
+
+            //
+            ///
+            //
+//            echo '111111111111111111111111';
+
+
+            $model->save();
+
+//            $model->setna
+//
+//            var_dump($model);
+
+
+            exit();
+            echo '2222222222222222222';
+
+
+
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
     }
 
 

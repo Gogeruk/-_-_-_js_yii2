@@ -16,23 +16,27 @@ class UserReviewSearch extends UserReview
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'email', 'review', 'rating', 'advantage', 'disadvantage'], 'safe'],
+            [['name', 'email', 'review', 'rating'], 'required'],
+            [['name'], 'string', 'max' => 30],
+            [['email', 'review', 'advantage', 'disadvantage'], 'string', 'max' => 255],
+            [['email'], 'email'],
+            [['email'], 'unique']
         ];
     }
 
     /**
+     * @return array|array[]
      * @inheritdoc
      */
-    public function scenarios()
+    public function scenarios() : array
     {
-        // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
 
     /***
      * @param array $params
      * @return ActiveDataProvider
+     * @inheritdoc
      */
     public function search($params)
     {
@@ -48,7 +52,6 @@ class UserReviewSearch extends UserReview
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
             $query->where('0=1');
             return $dataProvider;
         }

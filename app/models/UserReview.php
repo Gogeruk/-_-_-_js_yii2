@@ -14,17 +14,35 @@ class UserReview extends ActiveRecord
     public $advantage;
     public $disadvantage;
 
-    private static $userReviews = [
-        '1' => [
-            'id' => '1',
-            'name' => 'test',
-            'email' => 'memail@mail.com',
-            'review' => 'GOOD',
-            'rating' => 1,
-            'advantage' => null,
-            'disadvantage' => null,
-        ],
-    ];
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['name', 'email', 'review', 'rating'], 'required'],
+            [['name'], 'string', 'max' => 30],
+            [['email', 'review', 'advantage', 'disadvantage'], 'string', 'max' => 255],
+            [['email'], 'email'],
+            [['email'], 'unique']
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'id',
+            'name' => 'name',
+            'email' => 'email',
+            'review' => 'review',
+            'rating' => 'rating',
+            'advantage' => 'advantage',
+            'disadvantage' => 'disadvantage',
+        ];
+    }
 
     /**
      * {@inheritdoc}

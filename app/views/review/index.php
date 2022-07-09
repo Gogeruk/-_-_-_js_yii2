@@ -7,13 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\UserReviewSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'UserReviews';
+$this->title = 'User Reviews';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="userreview-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create User Review', ['create'], ['class' => 'btn btn-success']) ?>
@@ -24,9 +23,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'name',
             'email:email',
+            'review',
+            'rating',
+            'advantage',
+            'advantage',
+            'disadvantage',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
