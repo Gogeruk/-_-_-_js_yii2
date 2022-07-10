@@ -39,11 +39,7 @@ class UserReviewSearch extends UserReview
         $query = UserReview::find();
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-            'totalCount' => 25,
-            'pagination' => [
-                'pageSize' => 25
-            ]
+            'query' => $query
         ]);
 
 
