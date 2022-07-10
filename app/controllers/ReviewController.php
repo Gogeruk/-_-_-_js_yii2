@@ -2,45 +2,16 @@
 
 namespace app\controllers;
 
+use app\models\ReviewAdditionalData;
 use Yii;
 use app\models\UserReviewSearch;
 use app\models\UserReview;
-use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 
 class ReviewController extends Controller
 {
-
-
-    public function behaviors()
-    {
-        return [
-//            'verbs' => [
-//                'class' => VerbFilter::className(),
-//                'actions' => [
-//                    'delete' => ['post'],
-//                ],
-//            ],
-//            'access' => [
-//                'class' => AccessControl::className(),
-//                'only' => ['create'],
-//                'rules' => [
-//                    [
-//                        'allow' => true,
-//                        'actions' => ['create'],
-//                        'roles' => ['@'],
-//                    ],
-//                ],
-//            ]
-        ];
-    }
-
-
-
     /**
      * @return string
      */
@@ -76,26 +47,15 @@ class ReviewController extends Controller
     {
         $model = new UserReview();
 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-//        print_r($_POST);
+            $userReviewData = new ReviewAdditionalData();
 
-
-
-        if ($model->load(Yii::$app->request->post()) /*&& $model->save()*/) {
-
-//        $model->id = rand(444, 99999);
-//        $model->name = 'aaaaaaaaaaaa';
-//        $model->email = 'aaaaaaaaaaaa@aaa.com';
-//        $model->review = 'aaaaaaaaaaaa';
-//        $model->rating = 2;
-//        $model->advantage = 'aaaaaaaaaaaa';
-//        $model->disadvantage = 'aaaaaaaaaaaa';
-        $model->save();
-
-
-
-
-
+            $userReviewData->setAttribute('ip_address', Yii::$app->getRequest()->getUserIP());
+            $userReviewData->setAttribute('user_agent', Yii::$app->getRequest()->getUserAgent());
+            $userReviewData->setAttribute('creation_date', date("Y-m-d/H:i:s",time()));
+            $userReviewData->setAttribute('user_review_id', $model->id);
+            $userReviewData->save();
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -106,6 +66,11 @@ class ReviewController extends Controller
     }
 
 
+    /**
+     * @param $id
+     * @return UserReview|null
+     * @throws NotFoundHttpException
+     */
     protected function findModel($id)
     {
         if (($model = UserReview::findOne($id)) !== null) {
