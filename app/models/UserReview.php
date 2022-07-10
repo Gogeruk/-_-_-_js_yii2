@@ -26,6 +26,13 @@ class UserReview extends ActiveRecord
             [['email', 'review', 'advantage', 'disadvantage'], 'string', 'max' => 255],
             [['email'], 'email'],
             [['email'], 'unique'],
+
+            // no html tags
+            [
+                ['review', 'advantage', 'disadvantage'],
+                'match', 'not' => true, 'pattern' => '/<\/?[^>]*>/',
+                'message' => 'HTML tags are not allowed'
+            ],
         ];
     }
 

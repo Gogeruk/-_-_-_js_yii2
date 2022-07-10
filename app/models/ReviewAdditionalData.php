@@ -21,7 +21,7 @@ class ReviewAdditionalData extends ActiveRecord
     {
         return [
             [['ip_address', 'user_agent'], 'required'],
-            [['ip_address'], 'string', 'max' => 16],
+            [['ip_address'], 'string', 'ip'],
             [['user_agent'], 'string', 'max' => 255],
         ];
     }
