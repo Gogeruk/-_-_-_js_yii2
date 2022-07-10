@@ -40,10 +40,12 @@ class UserReviewSearch extends UserReview
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'totalCount' => 25,
             'pagination' => [
                 'pageSize' => 25
             ]
         ]);
+
 
         $this->load($params);
 

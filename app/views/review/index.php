@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UserReviewSearch */
@@ -14,25 +15,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create User Review', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?= $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'name',
-            'email:email',
-            'review',
-            'rating',
-            'advantage',
-            'advantage',
-            'disadvantage',
+    <div class="m-3 border border-primary">
+        <?= Html::a('Create User Review', ['create'], ['class' => 'm-3 btn btn-success']) ?>
+    </div>
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+    <div class = "m-3 border border-primary">
+
+        <?= ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '_userreview'
+        ]); ?>
+
+    </div>
+
 
 </div>
