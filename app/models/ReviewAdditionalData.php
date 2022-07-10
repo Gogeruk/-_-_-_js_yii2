@@ -27,8 +27,5 @@ class ReviewAdditionalData extends ActiveRecord
         ];
     }
 
-    public function getCustomer()
-    {
-        return $this->hasOne(UserReview::class, ['id' => 'user_review_id']);
-    }
+
 }

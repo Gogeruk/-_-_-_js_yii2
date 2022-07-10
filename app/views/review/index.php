@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ListView;
+use yii\widgets\LinkSorter;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UserReviewSearch */
@@ -21,6 +22,10 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <div class = "m-3 border border-primary">
+
+        <?= LinkSorter::widget([
+            'sort' => $dataProvider->sort,
+        ]) ?>
 
         <?= ListView::widget([
             'dataProvider' => $dataProvider,

@@ -36,6 +36,16 @@ class UserReview extends ActiveRecord
         ];
     }
 
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getReviewAdditionalData() : \yii\db\ActiveQuery
+    {
+        return $this->hasOne(ReviewAdditionalData::class, ['user_review_id' => 'id']);
+    }
+
+
     /**
      * @inheritdoc
      */

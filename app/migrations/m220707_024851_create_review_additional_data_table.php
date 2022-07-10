@@ -17,7 +17,7 @@ class m220707_024851_create_review_additional_data_table extends Migration
             'ip_address' => $this->string()->notNull(),
             'user_agent' => $this->string()->notNull(),
             'creation_date' => $this->timestamp()->notNull(),
-            'user_review_id' => $this->integer()->notNull(),
+            'user_review_id' => $this->integer()->null(),
         ]);
 
         $this->createIndex(
@@ -32,7 +32,7 @@ class m220707_024851_create_review_additional_data_table extends Migration
             'user_review_id',
             'user_review',
             'id',
-            'RESTRICTED'
+            'SET NULL'
         );
 
     }
@@ -43,12 +43,12 @@ class m220707_024851_create_review_additional_data_table extends Migration
     public function safeDown()
     {
         $this->dropForeignKey(
-            'fk-post-user_review_id',
+            'fk-review_additional_data-user_review_id',
             'review_additional_data'
         );
 
         $this->dropIndex(
-            'idx-post-user_review_id',
+            'idx-review_additional_data-user_review_id',
             'review_additional_data'
         );
         

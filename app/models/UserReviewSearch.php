@@ -54,13 +54,31 @@ class UserReviewSearch extends UserReview
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere
+        (
+            ['like', 'name', $this->name])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'review', $this->review])
             ->andFilterWhere(['like', 'rating', $this->rating])
             ->andFilterWhere(['like', 'advantage', $this->advantage])
             ->andFilterWhere(['like', 'disadvantage', $this->disadvantage])
         ;
+
+
+        /// !!!!!!
+        /// !!!!!!
+        /// !!!!!!
+        /// !!!!!!
+
+        // fix realtion
+        // downt work
+
+//        $aaaa = UserReview::findOne(1);
+//        $qqqq = $aaaa->getReviewAdditionalData()->all()[0];
+//        var_dump($qqqq);
+
+
+
 
         return $dataProvider;
     }

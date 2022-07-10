@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5b2064cbf8350975cb87b44564445b0",
+    "content-hash": "a26f06cc9dd66c12b7e0c1c3d2760ad0",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -339,6 +339,53 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/v4.14.0"
             },
             "time": "2021-12-25T01:21:49+00:00"
+        },
+        {
+            "name": "notamedia/yii2-relation",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/notamedia/yii2-relation.git",
+                "reference": "31a51b9c201230618af3887dbd771526c420d035"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/notamedia/yii2-relation/zipball/31a51b9c201230618af3887dbd771526c420d035",
+                "reference": "31a51b9c201230618af3887dbd771526c420d035",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "yiisoft/yii2": "~2.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.3",
+                "codeception/specify": "^0.4.3",
+                "codeception/verify": "^0.3.2",
+                "yiisoft/yii2-codeception": "^2.0.5"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "notamedia\\relation\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Saving related data in Yii2",
+            "keywords": [
+                "many-to-many",
+                "one-to-many",
+                "relation",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/notamedia/yii2-relation/issues",
+                "source": "https://github.com/notamedia/yii2-relation"
+            },
+            "time": "2017-08-24T14:16:36+00:00"
         },
         {
             "name": "npm-asset/bootstrap",
