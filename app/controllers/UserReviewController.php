@@ -21,7 +21,6 @@ class UserReviewController extends Controller
 
 
     /**
-     * @param string $create
      * @return Response
      */
     public function actionCreate() : Response
@@ -33,6 +32,8 @@ class UserReviewController extends Controller
         $userReview->setAttribute('email', $request->post('email'));
         $userReview->setAttribute('review', $request->post('review'));
         $userReview->setAttribute('rating', $request->post('rating'));
+        $userReview->setAttribute('advantage', $request->post('advantage'));
+        $userReview->setAttribute('disadvantage', $request->post('disadvantage'));
         if (!$userReview->save()) {
             return $this->asJson($userReview->errors);
         }
@@ -48,16 +49,31 @@ class UserReviewController extends Controller
     }
 
 
+    /**
+     * @return Response
+     * @throws \yii\db\StaleObjectException
+     */
+    public function actionUpdate() : Response
+    {
+        $request = Yii::$app->request;
 
-//    /**
-//     * @param array $data
-//     * @return Response
-//     */
-//    public function actionCreate(array $data) : Response
-//    {
-//        $userReview = UserReview::findOne($data['id']);
-//        return $this->asJson($userReview);
-//    }
+        $userReview = UserReview::findOne($request->post('id'));
+
+        $userReview->setAttribute('name', $request->post('name'));
+        $userReview->setAttribute('email', $request->post('email'));
+        $userReview->setAttribute('review', $request->post('review'));
+        $userReview->setAttribute('rating', $request->post('rating'));
+        $userReview->setAttribute('advantage', $request->post('advantage'));
+        $userReview->setAttribute('disadvantage', $request->post('disadvantage'));
+
+        $userReview->update();
+        if (!empty($userReview->errors)) {
+            return $this->asJson($userReview->errors);
+        }
+
+        return $this->asJson($userReview);
+    }
+
 
     /**
      * @return Response
