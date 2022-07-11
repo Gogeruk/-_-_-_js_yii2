@@ -29,7 +29,7 @@ class UserReviewSearch extends UserReview
         return Model::scenarios();
     }
 
-    /***
+    /**
      * @param array $params
      * @return ActiveDataProvider
      * @inheritdoc
@@ -54,9 +54,8 @@ class UserReviewSearch extends UserReview
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere
-        (
-            ['like', 'name', $this->name])
+        $query
+            ->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'review', $this->review])
             ->andFilterWhere(['like', 'rating', $this->rating])
@@ -64,21 +63,19 @@ class UserReviewSearch extends UserReview
             ->andFilterWhere(['like', 'disadvantage', $this->disadvantage])
         ;
 
-
-        /// !!!!!!
-        /// !!!!!!
-        /// !!!!!!
-        /// !!!!!!
-
-        // fix realtion
-        // downt work
-
-//        $aaaa = UserReview::findOne(1);
-//        $qqqq = $aaaa->getReviewAdditionalData()->all()[0];
-//        var_dump($qqqq);
-
-
-
+        $query->joinWith(['reviewAdditionalData']);
+        $dataProvider->setSort([
+            'attributes' => [
+                'review_additional_data.creation_date' => [
+                    'asc' => ['creation_date' => SORT_ASC],
+                    'default' => SORT_ASC
+                ],
+                'user_review.rating' => [
+                    'asc' => ['rating' => SORT_ASC],
+                    'default' => SORT_ASC
+                ],
+            ]
+        ]);
 
         return $dataProvider;
     }

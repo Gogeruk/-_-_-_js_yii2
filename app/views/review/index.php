@@ -18,13 +18,16 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_search', ['model' => $searchModel]); ?>
 
     <div class="m-3 border border-primary">
+        <h1 class="m-3"><?= Html::encode('Create New') ?></h1>
+
         <?= Html::a('Create User Review', ['create'], ['class' => 'm-3 btn btn-success']) ?>
     </div>
 
     <div class = "m-3 border border-primary">
+        <h1 class="m-3"><?= Html::encode('Display') ?></h1>
 
         <?= LinkSorter::widget([
-            'sort' => $dataProvider->sort,
+            'sort' => $dataProvider->sort
         ]) ?>
 
         <?= ListView::widget([
@@ -34,8 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'pagination' => $dataProvider->setPagination(['pageSize' => 25])
             ],
         ]); ?>
-
-
 
     </div>
 

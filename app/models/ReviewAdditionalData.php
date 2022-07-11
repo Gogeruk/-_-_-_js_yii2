@@ -26,6 +26,4 @@ class ReviewAdditionalData extends ActiveRecord
             [['user_agent'], 'string', 'max' => 255],
         ];
     }
-
-
 }
