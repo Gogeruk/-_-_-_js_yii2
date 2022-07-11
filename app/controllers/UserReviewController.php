@@ -2,14 +2,17 @@
 
 namespace app\controllers;
 
-use yii\rest\ActiveController;
+use app\models\UserReview;
+use yii\web\Controller;
 
-class UserReviewController extends ActiveController
+
+class UserReviewController extends Controller
 {
     public $modelClass = 'app\models\UserReview';
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $userReview = UserReview::find()->all();
+        return $this->asJson($userReview);
     }
 }
