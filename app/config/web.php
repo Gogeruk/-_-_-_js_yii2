@@ -53,6 +53,8 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'GET api/user-review' => 'user-review/index',
+                'GET api/user-review/id/<id:\d+>' => 'user-review/id',
+                'GET api/user-review/ip/<ip>' => 'user-review/ip',
             ],
         ],
 

@@ -8,16 +8,20 @@ use app\models\UserReviewSearch;
 use app\models\UserReview;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 
 class ReviewController extends Controller
 {
+    /**
+     * @var string
+     */
     public $modelClass = 'app\models\UserReview';
 
     /**
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex() : string
     {
         $searchModel = new UserReviewSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -34,7 +38,7 @@ class ReviewController extends Controller
      * @return string
      * @throws NotFoundHttpException
      */
-    public function actionView($id)
+    public function actionView($id): string
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -43,7 +47,7 @@ class ReviewController extends Controller
 
 
     /**
-     * @return string|\yii\web\Response
+     * @return string|Response
      */
     public function actionCreate()
     {
