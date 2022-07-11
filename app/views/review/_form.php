@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 
 ?>
 
-<div class="UserReview-form">
+<div class="UserReview-form m-3">
 
     <?php $form = ActiveForm::begin(); ?>
 

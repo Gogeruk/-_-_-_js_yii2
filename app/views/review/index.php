@@ -12,10 +12,7 @@ $this->title = 'User Reviews';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="userreview-index">
-
     <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_search', ['model' => $searchModel]); ?>
 
     <div class="m-3 border border-primary">
         <h1 class="m-3"><?= Html::encode('Create New') ?></h1>
@@ -23,21 +20,25 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create User Review', ['create'], ['class' => 'm-3 btn btn-success']) ?>
     </div>
 
+
+    <?= $this->render('_search', ['model' => $searchModel]); ?>
+
+
     <div class = "m-3 border border-primary">
         <h1 class="m-3"><?= Html::encode('Display') ?></h1>
+        <div class="m-3">
+            <?= LinkSorter::widget([
+                'sort' => $dataProvider->sort
+            ]) ?>
 
-        <?= LinkSorter::widget([
-            'sort' => $dataProvider->sort
-        ]) ?>
-
-        <?= ListView::widget([
-            'dataProvider' => $dataProvider,
-            'itemView' => '_userreview',
-            'pager' => [
-                'pagination' => $dataProvider->setPagination(['pageSize' => 25])
-            ],
-        ]); ?>
-
+            <?= ListView::widget([
+                'dataProvider' => $dataProvider,
+                'itemView' => '_userreview',
+                'pager' => [
+                    'pagination' => $dataProvider->setPagination(['pageSize' => 25])
+                ],
+            ]); ?>
+        </div>
     </div>
 
 

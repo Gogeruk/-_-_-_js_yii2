@@ -12,6 +12,8 @@ use yii\web\NotFoundHttpException;
 
 class ReviewController extends Controller
 {
+    public $modelClass = 'app\models\UserReview';
+
     /**
      * @return string
      */
@@ -59,7 +61,7 @@ class ReviewController extends Controller
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->render('_create', [
                 'model' => $model,
             ]);
         }
