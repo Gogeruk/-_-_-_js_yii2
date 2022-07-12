@@ -3,9 +3,11 @@
 namespace app\models;
 
 use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
 
 
-class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
+class User extends ActiveRecord implements IdentityInterface
 {
     public $id;
     public $username;
@@ -29,6 +31,19 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
             'accessToken' => '101-token',
         ],
     ];
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['username'], 'required'],
+            [['username'], 'string', 'max' => 30],
+            [['accessToken'], 'string', 'max' => 10],
+        ];
+    }
+
 
     /**
      * @return ActiveQuery

@@ -23,21 +23,21 @@ class UserReviewController extends Controller
     public $enableCsrfValidation = false;
 
 
-//    /**
-//     * @return array
-//     */
-//    public function behaviors() : array
-//    {
-//        $behaviors = parent::behaviors();
-//        $behaviors['authenticator'] = [
-//            'class' => CompositeAuth::class,
-//            'authMethods' => [
-//                HttpBearerAuth::class,
-//            ],
-//        ];
-//
-//        return $behaviors;
-//    }
+    /**
+     * @return array
+     */
+    public function behaviors() : array
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['authenticator'] = [
+            'class' => CompositeAuth::class,
+            'authMethods' => [
+                HttpBearerAuth::class,
+            ],
+        ];
+
+        return $behaviors;
+    }
 
 
     /**
@@ -48,11 +48,11 @@ class UserReviewController extends Controller
         //
         //
         //
-//        $aaa = new HttpBearerAuth();
-//        $User = User::findIdentityByAccessToken($request->post('access_token'));
-//
+        $aaa = new HttpBearerAuth();
+        $user = User::findIdentityByAccessToken($request->post('access_token'));
+
 //        $aaa->authenticate($user, Yii::$app->request, Yii::$app->response);
-//
+
 
 
         $request = Yii::$app->request;

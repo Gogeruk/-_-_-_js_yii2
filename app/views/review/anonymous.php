@@ -2,17 +2,18 @@
 
 use yii\helpers\Html;
 
-$this->title = 'User Reviews';
+$this->title = 'User Anonymous';
 ?>
 
 <div class="review-anonymous m-3">
     <div class="m-3 border border-primary">
+
         <p class="m-3">
-            name: <?= $user->name ?>
+            name: <?= $user->getAttribute('username') ?>
         </p>
 
         <p class="m-3">
-            access_token: <?= $user->access_token ?>
+            access-token: <?= $user->getAttribute('access-token') ?>
         </p>
     </div>
 </div>
