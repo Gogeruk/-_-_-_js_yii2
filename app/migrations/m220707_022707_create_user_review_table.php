@@ -20,7 +20,23 @@ class m220707_022707_create_user_review_table extends Migration
             'rating' => $this->integer(5)->notNull(),
             'advantage' => $this->text()->null(),
             'disadvantage' => $this->text()->null(),
+            'author_id' => $this->integer()->null(),
         ]);
+
+        $this->createIndex(
+            'idx-user_review-author_id',
+            'user_review',
+            'author_id'
+        );
+
+        $this->addForeignKey(
+            'fk-user_review-author_id',
+            'user_review',
+            'author_id',
+            'author',
+            'id',
+            'SET NULL'
+        );
     }
 
     /**
@@ -28,6 +44,16 @@ class m220707_022707_create_user_review_table extends Migration
      */
     public function safeDown()
     {
+        $this->dropForeignKey(
+            'fk-user_review-author_id',
+            'user_review'
+        );
+
+        $this->dropIndex(
+            'idx-user_review-author_id',
+            'user_review'
+        );
+        
         $this->dropTable('{{%user_review}}');
     }
 }

@@ -5,6 +5,8 @@ namespace app\controllers;
 use Yii;
 use app\models\ReviewAdditionalData;
 use app\models\UserReview;
+use yii\filters\auth\CompositeAuth;
+use yii\filters\auth\HttpBearerAuth;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -18,6 +20,23 @@ class UserReviewController extends Controller
     //
     // needs for post
     public $enableCsrfValidation = false;
+
+
+//    /**
+//     * @return array
+//     */
+//    public function behaviors() : array
+//    {
+//        $behaviors = parent::behaviors();
+//        $behaviors['authenticator'] = [
+//            'class' => CompositeAuth::class,
+//            'authMethods' => [
+//                HttpBearerAuth::class,
+//            ],
+//        ];
+//
+//        return $behaviors;
+//    }
 
 
     /**

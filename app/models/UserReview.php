@@ -2,9 +2,14 @@
 
 namespace app\models;
 
+use PharIo\Manifest\Author;
 use yii\db\ActiveRecord;
+use yii\db\ActiveQuery;
 
-
+/**
+ * @property Author $author
+ * @property ReviewAdditionalData $reviewAdditionalData
+ */
 class UserReview extends ActiveRecord
 {
     /**
@@ -38,9 +43,17 @@ class UserReview extends ActiveRecord
 
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
-    public function getReviewAdditionalData() : \yii\db\ActiveQuery
+    public function getAuthor() : ActiveQuery
+    {
+        return $this->hasOne(Author::class, ['id' => 'author_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getReviewAdditionalData() : ActiveQuery
     {
         return $this->hasOne(ReviewAdditionalData::class, ['user_review_id' => 'id']);
     }
