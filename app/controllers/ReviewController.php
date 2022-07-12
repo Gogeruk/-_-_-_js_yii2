@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\ReviewAdditionalData;
+use app\models\Author;
 use Yii;
 use app\models\UserReviewSearch;
 use app\models\UserReview;
@@ -29,6 +30,22 @@ class ReviewController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function actionAnonymous() : string
+    {
+        $author = new Author();
+
+        $author->setAttribute('name', 'Anonymous');
+        $author->setAttribute('access_token', (string) rand(1000000000, 9999999999));
+        $author->save();
+
+        return $this->render('anonymous', [
+            'author' => $author
         ]);
     }
 

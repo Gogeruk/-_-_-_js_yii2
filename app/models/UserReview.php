@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use PharIo\Manifest\Author;
 use yii\db\ActiveRecord;
 use yii\db\ActiveQuery;
 

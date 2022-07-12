@@ -9,7 +9,7 @@ use yii\db\ActiveQuery;
 /**
  * @property UserReview[] $userReviews
  */
-class AuthorReview extends ActiveRecord
+class Author extends ActiveRecord
 {
     /**
      * @inheritdoc
