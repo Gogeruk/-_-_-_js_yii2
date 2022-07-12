@@ -8,11 +8,11 @@ $this->title = 'User Reviews';
 <div class="review-anonymous m-3">
     <div class="m-3 border border-primary">
         <p class="m-3">
-            name: <?= $author->name ?>
+            name: <?= $user->name ?>
         </p>
 
         <p class="m-3">
-            access_token: <?= $author->access_token ?>
+            access_token: <?= $user->access_token ?>
         </p>
     </div>
 </div>

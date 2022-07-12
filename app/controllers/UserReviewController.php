@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use Yii;
 use app\models\ReviewAdditionalData;
 use app\models\UserReview;
@@ -44,6 +45,16 @@ class UserReviewController extends Controller
      */
     public function actionCreate() : Response
     {
+        //
+        //
+        //
+//        $aaa = new HttpBearerAuth();
+//        $User = User::findIdentityByAccessToken($request->post('access_token'));
+//
+//        $aaa->authenticate($user, Yii::$app->request, Yii::$app->response);
+//
+
+
         $request = Yii::$app->request;
 
         $userReview = new UserReview;

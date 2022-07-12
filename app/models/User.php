@@ -2,6 +2,9 @@
 
 namespace app\models;
 
+use yii\db\ActiveQuery;
+
+
 class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
     public $id;
@@ -27,6 +30,13 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
         ],
     ];
 
+    /**
+     * @return ActiveQuery
+     */
+    public function getUserReviews() : ActiveQuery
+    {
+        return $this->hasMany(UserReview::class, ['author_id' => 'id']);
+    }
 
     /**
      * {@inheritdoc}
