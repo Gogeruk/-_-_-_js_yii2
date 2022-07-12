@@ -11,7 +11,7 @@ use yii\widgets\LinkSorter;
 $this->title = 'User Reviews';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="userreview-index">
+<div class="review-index">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="m-3 border border-primary">

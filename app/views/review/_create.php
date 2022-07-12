@@ -10,7 +10,7 @@ $this->title = 'Create Review';
 $this->params['breadcrumbs'][] = ['label' => 'UserReviews', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="userreview-create">
+<div class="review-create">
     <div class="m-3 border border-primary">
 
         <h1 class="m-3"><?= Html::encode($this->title) ?></h1>

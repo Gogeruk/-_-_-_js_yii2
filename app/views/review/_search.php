@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="userreview-search m-3 border border-primary ">
+<div class="review-search m-3 border border-primary ">
     <div class="m-3">
         <h1><?= Html::encode('Search') ?></h1>
 

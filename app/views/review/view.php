@@ -8,7 +8,7 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'User Reviews', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="userreview-view">
+<div class="review-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
