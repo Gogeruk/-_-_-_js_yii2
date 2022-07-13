@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\File;
 use app\models\ReviewAdditionalData;
 use app\models\UploadForm;
 use app\models\User;
@@ -105,12 +106,11 @@ class ReviewController extends Controller
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->upload() !== false) {
 
-                // attach ing to user review
-//                $userReview = UserReview::findOne($id);
-
-                $imageName = $model->imageName;
-                $path = $model->imagePath;
-
+                $file = new File();
+                $file->setAttribute('user_review_id', $id);
+                $file->setAttribute('path', $model->imagePath);
+                $file->setAttribute('name', $model->imageName);
+                $file->save();
 
                 // file is uploaded successfully
                 return;

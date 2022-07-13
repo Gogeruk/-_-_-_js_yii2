@@ -2,8 +2,8 @@
 
 namespace app\models;
 
-use phpDocumentor\Reflection\Types\This;
 use yii\base\Model;
+use yii\db\ActiveQuery;
 use yii\web\UploadedFile;
 
 class UploadForm extends Model

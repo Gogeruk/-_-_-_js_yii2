@@ -6,7 +6,7 @@ use yii\db\ActiveRecord;
 use yii\db\ActiveQuery;
 
 /**
- * @property Author $author
+ * @property User $user
  * @property ReviewAdditionalData $reviewAdditionalData
  */
 class UserReview extends ActiveRecord
@@ -44,9 +44,9 @@ class UserReview extends ActiveRecord
     /**
      * @return ActiveQuery
      */
-    public function getAuthor() : ActiveQuery
+    public function getUser() : ActiveQuery
     {
-        return $this->hasOne(Author::class, ['id' => 'author_id']);
+        return $this->hasOne(User::class, ['id' => 'User_id']);
     }
 
     /**
@@ -57,6 +57,13 @@ class UserReview extends ActiveRecord
         return $this->hasOne(ReviewAdditionalData::class, ['user_review_id' => 'id']);
     }
 
+//    /**
+//     * @return ActiveQuery
+//     */
+//    public function getUploadForms() : ActiveQuery
+//    {
+//        return $this->hasMany(UploadForm::class, ['user_review_id' => 'id']);
+//    }
 
     /**
      * @inheritdoc

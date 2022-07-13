@@ -18,7 +18,7 @@ use yii\helpers\HtmlPurifier;
     </ul>
 
     <div class="mb-4">
-        <?= Html::a('Upload File', ['upload', 'id' => $model->id], ['class' => 'mb-4 btn btn-sm btn-primary']) ?>
+        <?= Html::a('Upload UploadForm', ['upload', 'id' => $model->id], ['class' => 'mb-4 btn btn-sm btn-primary']) ?>
     </div>
 
 </div>
