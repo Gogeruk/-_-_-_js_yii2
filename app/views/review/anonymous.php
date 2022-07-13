@@ -13,7 +13,7 @@ $this->title = 'User Anonymous';
         </p>
 
         <p class="m-3">
-            access-token: <?= $user->getAttribute('access-token') ?>
+            access-token: <?= $user->getAttribute('access_token') ?>
         </p>
     </div>
 </div>

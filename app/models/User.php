@@ -15,6 +15,11 @@ class User extends ActiveRecord implements IdentityInterface
     public $authKey;
     public $accessToken;
 
+    public static function tableName()
+    {
+        return 'user';
+    }
+
     private static $users = [
         '100' => [
             'id' => '100',
@@ -66,13 +71,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
-
-        return null;
+        return static::findOne(['access_token' => $token]);
     }
 
     /**

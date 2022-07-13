@@ -43,7 +43,7 @@ class ReviewController extends Controller
         $user->username = 'anonymous';
         $user->setAttribute('username', 'anonymous');
         $user->setAttribute('password', 'anonymous');
-        $user->setAttribute('access-token', (string) rand(1000000000, 9999999999));
+        $user->setAttribute('access_token', (string) rand(1000000000, 9999999999));
         $user->save();
 
         return $this->render('anonymous', [
