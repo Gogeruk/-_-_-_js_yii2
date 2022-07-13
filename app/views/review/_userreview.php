@@ -15,10 +15,10 @@ use yii\helpers\HtmlPurifier;
         <li class="mb-1">Rating: <?= Html::encode($model->rating) ?></li>
         <li class="mb-1">Advantage: <?= Html::encode($model->advantage)  ?></li>
         <li class="mb-1">Disadvantage: <?= Html::encode($model->disadvantage) ?></li>
-
     </ul>
+
     <div class="mb-4">
-        <?= Html::a('Upload File', ['upload'], ['class' => 'mb-4 btn btn-sm btn-primary']) ?>
+        <?= Html::a('Upload File', ['upload', 'id' => $model->id], ['class' => 'mb-4 btn btn-sm btn-primary']) ?>
     </div>
 
 </div>

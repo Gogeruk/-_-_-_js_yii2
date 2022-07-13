@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use phpDocumentor\Reflection\Types\This;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
@@ -12,6 +13,18 @@ class UploadForm extends Model
      */
     public $imageFile;
 
+    /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
+     * @var string
+     */
+    public $imagePath = 'uploads/images/';
+
+
+
     public function rules()
     {
         return [
@@ -19,19 +32,35 @@ class UploadForm extends Model
         ];
     }
 
+
+    /**
+     * @return bool
+     */
     public function upload()
     {
         if ($this->validate()) {
-            $this->imageFile->saveAs(
-                'uploads/images/' .
-                $this->imageFile->baseName .
-                rand(1000000000, 9999999999) .
-                '.' .
-                $this->imageFile->extension
-            );
+            $this->imageName = $this->generateName();
+
+            $this->imageFile->saveAs($this->imagePath . $this->imageName);
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function generateName(): string
+    {
+        return
+            date("Y-m-d", time()) .
+            '_' .
+            $this->imageFile->baseName .
+            '_' .
+            rand(1000000000, 9999999999) .
+            '.' .
+            $this->imageFile->extension
+        ;
     }
 }

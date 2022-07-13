@@ -94,22 +94,33 @@ class ReviewController extends Controller
 
 
     /**
+     * @param int $id
      * @return string|void
      */
-    public function actionUpload()
+    public function actionUpload(int $id)
     {
         $model = new UploadForm();
 
         if (Yii::$app->request->isPost) {
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            if ($model->upload()) {
+            if ($model->upload() !== false) {
+
+                // attach ing to user review
+//                $userReview = UserReview::findOne($id);
+
+                $imageName = $model->imageName;
+                $path = $model->imagePath;
+
 
                 // file is uploaded successfully
                 return;
             }
         }
 
-        return $this->render('upload', ['model' => $model]);
+        return $this->render('upload', [
+            'model' => $model,
+            'id' => $id
+        ]);
     }
 
 
