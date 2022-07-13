@@ -65,5 +65,10 @@ RUN curl -L https://raw.githubusercontent.com/yiisoft/yii2/master/contrib/comple
 # Set the working directory
 WORKDIR /var/www/app
 
+# Fix stuff
+RUN mkdir -p /web/uploads/images
+RUN chnod 777 -R web/
+RUN chnod 777 -R runtime/
+
 
 

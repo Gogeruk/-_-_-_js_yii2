@@ -10,8 +10,16 @@ docker ps
 docker exec -it <php docker id> /bin/bash
 
 4.
+composer install
+
+5.
 php yii migrate
 
+!!!
+IN CASE OF PERMISSION ERROR
+sudo chown -R $USER:$USER test_yii2
+chmod 777 -R test_yii2/app/web/
+chmod 777 -R test_yii2/app/runtime/
 
 
 --------------------
