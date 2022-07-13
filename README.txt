@@ -1,8 +1,19 @@
 
 :::START:::
+1.
+docker-compose up -d
 
+2.
+docker ps
 
+3.
+docker exec -it <php docker id> /bin/bash
 
+4.
+php yii migrate
+
+--------------------
+Go to
 
 
 :::API:::
