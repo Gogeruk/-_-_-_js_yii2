@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\ReviewAdditionalData;
+use app\models\UploadForm;
 use app\models\User;
 use Yii;
 use app\models\UserReviewSearch;
@@ -10,6 +11,7 @@ use app\models\UserReview;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
+use yii\web\UploadedFile;
 
 
 class ReviewController extends Controller
@@ -88,6 +90,26 @@ class ReviewController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+
+    /**
+     * @return string|void
+     */
+    public function actionUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if ($model->upload()) {
+
+                // file is uploaded successfully
+                return;
+            }
+        }
+
+        return $this->render('upload', ['model' => $model]);
     }
 
 
