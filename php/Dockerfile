@@ -67,8 +67,7 @@ WORKDIR /var/www/app
 
 # Fix stuff
 RUN mkdir -p /web/uploads/images
-RUN chnod 777 -R web/
-RUN chnod 777 -R runtime/
+
 
 
 
