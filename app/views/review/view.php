@@ -12,6 +12,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <div class="mb-4">
+        <?php if (!empty($model->getFiles()->one())) {
+            echo Html::img(
+                '/' . $model->getFiles()->one()->getAttribute('path'),
+                ['class' => 'img-fluid', 'style' => 'max-width:20%;']
+            );
+        } ?>
+    </div>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [

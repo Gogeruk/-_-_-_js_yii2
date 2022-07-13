@@ -7,6 +7,15 @@ use yii\helpers\HtmlPurifier;
 
 <div class = "userrebiew m-3">
 
+    <div class="mb-4">
+        <?php if (!empty($model->getFiles()->one())) {
+            echo Html::img(
+                '/' . $model->getFiles()->one()->getAttribute('path'),
+                ['class' => 'img-fluid', 'style' => 'max-width:5%;']
+            );
+        } ?>
+    </div>
+
     <ul class="list-group m-3">
         <li class="mb-1">Id: <?= Html::encode($model->id) ?></li>
         <li class="mb-1">Name: <?= Html::encode($model->name) ?></li>

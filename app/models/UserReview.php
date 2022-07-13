@@ -57,13 +57,13 @@ class UserReview extends ActiveRecord
         return $this->hasOne(ReviewAdditionalData::class, ['user_review_id' => 'id']);
     }
 
-//    /**
-//     * @return ActiveQuery
-//     */
-//    public function getUploadForms() : ActiveQuery
-//    {
-//        return $this->hasMany(UploadForm::class, ['user_review_id' => 'id']);
-//    }
+    /**
+     * @return ActiveQuery
+     */
+    public function getFiles() : ActiveQuery
+    {
+        return $this->hasMany(File::class, ['user_review_id' => 'id']);
+    }
 
     /**
      * @inheritdoc

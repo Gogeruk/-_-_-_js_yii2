@@ -96,7 +96,7 @@ class ReviewController extends Controller
 
     /**
      * @param int $id
-     * @return string|void
+     * @return string|Response
      */
     public function actionUpload(int $id)
     {
@@ -108,12 +108,13 @@ class ReviewController extends Controller
 
                 $file = new File();
                 $file->setAttribute('user_review_id', $id);
-                $file->setAttribute('path', $model->imagePath);
+                $file->setAttribute('path', $model->imagePath . $model->imageName);
                 $file->setAttribute('name', $model->imageName);
                 $file->save();
 
-                // file is uploaded successfully
-                return;
+                return $this->redirect(
+                    ['view', 'id' => $file->getAttribute('user_review_id')]
+                );
             }
         }
 
