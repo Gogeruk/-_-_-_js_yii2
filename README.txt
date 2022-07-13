@@ -12,11 +12,14 @@ docker exec -it <php docker id> /bin/bash
 4.
 php yii migrate
 
+
+
 --------------------
 Go to
+http://localhost:8080/
+Generate an anon user and copy token for api
 
-
-:::API:::
+:::API Curl:::
 // index
 curl \
   --request GET \
