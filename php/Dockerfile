@@ -66,7 +66,7 @@ RUN curl -L https://raw.githubusercontent.com/yiisoft/yii2/master/contrib/comple
 WORKDIR /var/www/app
 
 # Fix stuff
-RUN mkdir -p /web/uploads/images
+RUN mkdir -p /app/web/uploads/images
 
 
 
