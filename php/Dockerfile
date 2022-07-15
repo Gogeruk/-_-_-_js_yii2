@@ -61,8 +61,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN curl -L https://raw.githubusercontent.com/yiisoft/yii2/master/contrib/completion/bash/yii \
         -o /etc/bash_completion.d/yii
 
-# Fix stuff
-RUN mkdir -p /var/www/app/web/uploads/images
 
 # Set the working directory
 WORKDIR /var/www/app
